@@ -652,3 +652,56 @@ footer p {
         font-size: 2rem;
     }
 }
+/* Project Navigation */
+.project-nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+}
+
+.project-nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Project Gallery - single image */
+.project-gallery {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.project-gallery img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+/* Project Meta */
+.project-meta {
+    margin-top: 2rem;
+    background: rgba(67, 97, 238, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.project-meta p {
+    margin-bottom: 0.8rem;
+    display: flex;
+}
+
+.project-meta p strong {
+    min-width: 120px;
+    display: inline-block;
+}
