@@ -188,3 +188,12 @@ window.addEventListener('load', () => {
     handleScroll();
     animateOnScroll();
 });
+// Add to script.js
+const menuToggle = document.createElement('div');
+menuToggle.className = 'menu-toggle';
+menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+document.querySelector('nav').appendChild(menuToggle);
+
+menuToggle.addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
