@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRaWAN Asset Tracker | Hetal Meghnathi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --primary-dark: #3a5a8a;
+            --secondary: #ff7e5f;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+            --gray: #e2e8f0;
+            --dark-gray: #4a5568;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #f56565;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1a202c;
+            color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .dark-mode header {
+            background-color: rgba(26, 32, 44, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .dark-mode .nav-links a {
+            color: var(--light);
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .dark-mode .theme-toggle {
+            background-color: var(--secondary);
+        }
+        .project-header {
+            padding: 80px 0 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark-mode .project-header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+        .dark-mode .section-title {
+            color: var(--secondary);
+        }
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .dark-mode .section-subtitle {
+            color: var(--gray);
+        }
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        .dark-mode .meta-item {
+            color: var(--gray);
+        }
+        .meta-item i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        .dark-mode .meta-item i {
+            color: var(--secondary);
+        }
+        .project-section {
+            padding: 60px 0;
+        }
+        .bg-light {
+            background-color: var(--gray);
+        }
+        .dark-mode .bg-light {
+            background-color: #2d3748;
+        }
+        .project-overview {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .overview-content {
+            flex: 1;
+        }
+        .overview-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .overview-image:hover {
+            transform: translateY(-5px);
+        }
+        .overview-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .feature-list i {
+            margin-right: 10px;
+            color: var(--success);
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .tech-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .dark-mode .tech-card {
+            background-color: #2d3748;
+        }
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .tech-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .tech-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        .dark-mode .tech-card h3 {
+            color: var(--secondary);
+        }
+        .tech-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tech-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .tech-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .dark-mode .tech-card li::before {
+            color: var(--secondary);
+        }
+        .architecture-diagram {
+            margin: 60px 0;
+            text-align: center;
+        }
+        .architecture-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .architecture-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        .color-node,
+        .color-gateway,
+        .color-network,
+        .color-cloud {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 4px;
+        }
+        .color-node { background-color: #4a6fa5; }
+        .color-gateway { background-color: #ff7e5f; }
+        .color-network { background-color: #48bb78; }
+        .color-cloud { background-color: #9f7aea; }
+        .power-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .power-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .dark-mode .power-card {
+            background-color: #2d3748;
+        }
+        .power-card:hover {
+            transform: scale(1.05);
+        }
+        .power-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .dark-mode .power-value {
+            color: var(--secondary);
+        }
+        .power-label {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        .dark-mode .power-label {
+            color: var(--gray);
+        }
+        .optimization-techniques {
+            margin: 40px 0;
+        }
+        .technique {
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .dark-mode .technique {
+            background-color: #2d3748;
+        }
+        .technique h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .dark-mode .technique h4 {
+            color: var(--secondary);
+        }
+        pre {
+            background-color: #282c34;
+            border-radius: 6px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9rem;
+        }
+        .test-results {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .result-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .dark-mode .result-card {
+            background-color: #2d3748;
+        }
+        .result-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        .dark-mode .result-card h3 {
+            color: var(--secondary);
+        }
+        .result-meter {
+            background-color: var(--gray);
+            border-radius: 20px;
+            height: 30px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .dark-mode .result-meter {
+            background-color: #4a5568;
+        }
+        .meter-bar {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            position: relative;
+        }
+        .meter-bar.urban { background-color: #4a6fa5; }
+        .meter-bar.suburban { background-color: #ff7e5f; }
+        .meter-bar.rural { background-color: #48bb78; }
+        .battery-life-chart {
+            display: flex;
+            height: 200px;
+            align-items: flex-end;
+            gap: 20px;
+        }
+        .chart-bar {
+            flex: 1;
+            background-color: var(--primary);
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 10px;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            transition: height 1s;
+        }
+        .chart-bar::after {
+            content: attr(data-value);
+            position: absolute;
+            top: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        .dark-mode .chart-bar::after {
+            color: var(--light);
+        }
+        .testimonial {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        .dark-mode .testimonial {
+            background-color: #2d3748;
+        }
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+            z-index: 0;
+        }
+        .dark-mode .testimonial::before {
+            color: var(--secondary);
+        }
+        @media (max-width: 900px) {
+            .project-overview {
+                flex-direction: column;
+            }
+            .tech-grid, .test-results, .power-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><i class="fas fa-satellite-dish"></i> Hetal Meghnathi</div>
+                <ul class="nav-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#tech">Tech Stack</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
+                    <li><a href="#power">Power</a></li>
+                    <li><a href="#results">Results</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="project-header">
+            <h1 class="section-title">LoRaWAN Asset Tracker</h1>
+            <p class="section-subtitle">Ultra-low power IoT device for real-time asset monitoring over long distances</p>
+            <div class="project-meta">
+                <div class="meta-item"><i class="fas fa-calendar-alt"></i>2024</div>
+                <div class="meta-item"><i class="fas fa-user"></i>Hetal Meghnathi</div>
+                <div class="meta-item"><i class="fas fa-microchip"></i>LoRaWAN, STM32, GPS</div>
+            </div>
+        </section>
+        <section class="project-section bg-light" id="overview">
+            <div class="container project-overview">
+                <div class="overview-content">
+                    <h2>Project Overview</h2>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i>Real-time GPS tracking</li>
+                        <li><i class="fas fa-check-circle"></i>LoRaWAN communication for long-range, low-power data transfer</li>
+                        <li><i class="fas fa-check-circle"></i>Ultra-low power design for multi-year battery life</li>
+                        <li><i class="fas fa-check-circle"></i>Cloud dashboard for visualization and alerts</li>
+                    </ul>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="LoRaWAN Asset Tracker Device">
+                </div>
+            </div>
+        </section>
+        <section class="project-section" id="tech">
+            <div class="container">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>Hardware</h3>
+                        <ul>
+                            <li>STM32L0 MCU</li>
+                            <li>Semtech SX1276 LoRa Transceiver</li>
+                            <li>u-blox GPS Module</li>
+                            <li>Li-SOCl2 Battery</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3>Network</h3>
+                        <ul>
+                            <li>LoRaWAN Class A</li>
+                            <li>The Things Network (TTN)</li>
+                            <li>Multi-channel Gateway</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fas fa-cloud"></i></div>
+                        <h3>Cloud & Dashboard</h3>
+                        <ul>
+                            <li>AWS IoT Core</li>
+                            <li>Node-RED Dashboard</li>
+                            <li>MQTT Integration</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Power Optimization</h3>
+                        <ul>
+                            <li>Deep Sleep Modes</li>
+                            <li>Duty Cycling</li>
+                            <li>Efficient Power Regulation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="project-section bg-light" id="architecture">
+            <div class="container">
+                <h2 class="section-title">System Architecture</h2>
+                <div class="architecture-diagram">
+                    <img src="https://i.imgur.com/1U7Jk7U.png" alt="System Architecture Diagram">
+                    <div class="architecture-legend">
+                        <div class="legend-item"><span class="color-node"></span>Node</div>
+                        <div class="legend-item"><span class="color-gateway"></span>Gateway</div>
+                        <div class="legend-item"><span class="color-network"></span>Network Server</div>
+                        <div class="legend-item"><span class="color-cloud"></span>Cloud Dashboard</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="project-section" id="power">
+            <div class="container">
+                <h2 class="section-title">Power Optimization</h2>
+                <div class="power-stats">
+                    <div class="power-card">
+                        <div class="power-value">1.2&nbsp;μA</div>
+                        <div class="power-label">Sleep Current</div>
+                    </div>
+                    <div class="power-card">
+                        <div class="power-value">38&nbsp;mA</div>
+                        <div class="power-label">Tx Peak Current</div>
+                    </div>
+                    <div class="power-card">
+                        <div class="power-value">5+&nbsp;years</div>
+                        <div class="power-label">Battery Life</div>
+                    </div>
+                </div>
+                <div class="optimization-techniques">
+                    <div class="technique">
+                        <h4>Deep Sleep Implementation</h4>
+                        <pre><code class="language-c">HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);</code></pre>
+                    </div>
+                    <div class="technique">
+                        <h4>Duty Cycling</h4>
+                        <pre><code class="language-c">while (1) {
+    enter_sleep();
+    if (time_to_send()) {
+        acquire_gps();
+        send_lora_packet();
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="project-section bg-light" id="results">
+            <div class="container">
+                <h2 class="section-title">Test Results</h2>
+                <div class="test-results">
+                    <div class="result-card">
+                        <h3>Urban Range</h3>
+                        <div class="result-meter">
+                            <div class="meter-bar urban" style="width:80%;">2.5 km</div>
+                        </div>
+                        <p>Dense city environment, multi-path fading.</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Suburban Range</h3>
+                        <div class="result-meter">
+                            <div class="meter-bar suburban" style="width:90%;">8 km</div>
+                        </div>
+                        <p>Open areas, minimal obstructions.</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Rural Range</h3>
+                        <div class="result-meter">
+                            <div class="meter-bar rural" style="width:100%;">15 km</div>
+                        </div>
+                        <p>Line-of-sight, flat terrain.</p>
+                    </div>
+                </div>
+                <h3>Battery Life Simulation</h3>
+                <div class="battery-life-chart">
+                    <div class="chart-bar" style="height: 120px;" data-value="2.5 yrs"></div>
+                    <div class="chart-bar" style="height: 160px;" data-value="4.1 yrs"></div>
+                    <div class="chart-bar" style="height: 200px;" data-value="5+ yrs"></div>
+                </div>
+            </div>
+        </section>
+        <section class="project-section">
+            <div class="container">
+                <div class="testimonial">
+                    <p>
+                        “This project demonstrates a robust, scalable, and ultra-low-power LoRaWAN solution for real-world asset tracking. The system’s architecture and optimizations enable deployments in diverse environments with minimal maintenance.”
+                    </p>
+                    <div style="margin-top:10px; font-weight:600;">– Hetal Meghnathi</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggleBtn">
+        <i class="fas fa-moon"></i>
+    </button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        // Highlight code blocks
+        document.querySelectorAll('pre code').forEach((block) => {
+            if (window.hljs) hljs.highlightElement(block);
+        });
+
+        // Theme toggle with persistence
+        const btn = document.getElementById('themeToggleBtn');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-mode');
+        }
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme',
+                document.body.classList.contains('dark-mode') ? 'dark' : 'light'
+            );
+        });
+    </script>
+</body>
+</html>
