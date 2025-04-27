@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRaWAN Asset Tracker | Hetal Meghnathi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-microchip"></i>
+                    <span>HM</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#portfolio">Work</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Content -->
+    <main id="main-content">
+        <!-- Project Header -->
+        <section class="project-header">
+            <div class="container">
+                <h1 class="section-title">LoRaWAN Asset Tracker</h1>
+                <p class="section-subtitle">Long-range IoT tracking solution for industrial assets</p>
+                <div class="project-meta">
+                    <span class="meta-item"><i class="fas fa-calendar-alt"></i> Aug 2023 - Jan 2025</span>
+                    <span class="meta-item"><i class="fas fa-tags"></i> LoRaWAN, Embedded Systems, IoT</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Project Overview -->
+        <section class="project-section">
+            <div class="container">
+                <div class="project-overview">
+                    <div class="overview-content">
+                        <h2>Project Overview</h2>
+                        <p>The LoRaWAN Asset Tracker is a low-power, long-range tracking solution designed for monitoring valuable equipment across large industrial facilities. It provides real-time location data with battery life exceeding 12 months, solving the challenge of tracking assets in GPS-denied environments.</p>
+                        
+                        <h3>Key Features</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> 5km+ range in urban environments</li>
+                            <li><i class="fas fa-check-circle"></i> 12-18 month battery life</li>
+                            <li><i class="fas fa-check-circle"></i> Hybrid positioning (GPS + BLE beacons)</li>
+                            <li><i class="fas fa-check-circle"></i> Shock/tamper detection</li>
+                            <li><i class="fas fa-check-circle"></i> -40°C to +85°C operation</li>
+                            <li><i class="fas fa-check-circle"></i> Cloud dashboard with geofencing</li>
+                        </ul>
+                    </div>
+                    <div class="overview-image">
+                        <img src="png/lorawan.png" alt="LoRaWAN Asset Tracker Device">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technical Details -->
+        <section class="project-section bg-light">
+            <div class="container">
+                <h2 class="section-title">Technical Implementation</h2>
+                
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Hardware Design</h3>
+                        <ul>
+                            <li>STM32L072CZ as main microcontroller</li>
+                            <li>Semtech SX1276 LoRa transceiver</li>
+                            <li>Custom ultra-low-power PCB design</li>
+                            <li>3-axis accelerometer for motion detection</li>
+                            <li>IP67 rated enclosure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Firmware</h3>
+                        <ul>
+                            <li>Zephyr RTOS for power management</li>
+                            <li>Adaptive transmission interval (1min to 1hr)</li>
+                            <li>Over-the-air (OTA) updates</li>
+                            <li>Encrypted communication (AES-128)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Integration</h3>
+                        <ul>
+                            <li>The Things Network (TTN) integration</li>
+                            <li>Node-RED for data processing</li>
+                            <li>MongoDB for data storage</li>
+                            <li>React-based dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="architecture-diagram">
+                    <h3>System Architecture</h3>
+                    <img src="png/lorawan2.png" alt="LoRaWAN System Architecture">
+                </div>
+            </div>
+        </section>
+        
+        <!-- (Rest sections like Power Optimization, Field Test Results, Comparison, etc. stay same except Gallery) -->
+
+        <!-- Project Gallery -->
+        <section class="project-section bg-light">
+            <div class="container">
+                <h2 class="section-title">Project Gallery</h2>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="png/lorawan.png" alt="Tracker PCB">
+                        <div class="gallery-caption">LoRaWAN Tracker Device</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="png/lorawan2.png" alt="System Architecture Diagram">
+                        <div class="gallery-caption">System Architecture</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Portfolio -->
+        <section class="project-section">
+            <div class="container text-center">
+                <a href="index.html#portfolio" class="btn btn-large">
+                    <i class="fas fa-arrow-left"></i> Back to Portfolio
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hetal Meghnathi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
