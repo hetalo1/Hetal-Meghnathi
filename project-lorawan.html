@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LoRaWAN Asset Tracker | Hetal Meghnathi</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <!-- Theme Toggle -->
+  <!-- Theme Toggle Button -->
   <button class="theme-toggle" aria-label="Toggle Theme">
     <i class="fas fa-moon"></i>
   </button>
@@ -23,10 +22,10 @@
           <i class="fas fa-microchip"></i> <span>HM</span>
         </div>
         <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#about">About</a></li>
-          <li><a href="../index.html#portfolio">Work</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#portfolio">Work</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -37,38 +36,36 @@
 
     <!-- Project Header -->
     <section class="project-header">
-      <div class="container">
+      <div class="container text-center">
         <h1 class="section-title">LoRaWAN Asset Tracker</h1>
-        <p class="section-subtitle">Industrial IoT tracking across challenging environments</p>
+        <p class="section-subtitle">Long-range IoT tracking solution for industrial assets</p>
         <div class="project-meta">
-          <p><strong>Duration:</strong> Aug 2023 – Jan 2025</p>
-          <p><strong>Technologies:</strong> LoRaWAN, Embedded Systems, IoT, Zephyr RTOS</p>
+          <p><strong>Duration:</strong> Aug 2023 - Jan 2025</p>
+          <p><strong>Technologies:</strong> LoRaWAN, Embedded Systems, IoT</p>
         </div>
       </div>
     </section>
 
     <!-- Project Overview -->
-    <section class="project-section bg-light">
-      <div class="container">
-        <div class="about-grid">
-          <div class="overview-content">
-            <h2>Project Overview</h2>
-            <p>Developed an ultra-low-power asset tracker leveraging LoRaWAN technology, ensuring efficient real-time monitoring of industrial equipment even in GPS-denied environments. Designed for robust field deployment, with optimized firmware and cloud integration.</p>
+    <section class="project-details bg-light">
+      <div class="container about-grid">
+        <div class="overview-content">
+          <h2>Project Overview</h2>
+          <p>The LoRaWAN Asset Tracker is a low-power, long-range solution designed for monitoring industrial equipment across large facilities. It offers real-time location tracking with over 12 months of battery life, even in GPS-denied environments.</p>
 
-            <h3>Key Features</h3>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> 5km+ communication range (urban)</li>
-              <li><i class="fas fa-check-circle"></i> Battery life: 12–18 months</li>
-              <li><i class="fas fa-check-circle"></i> GPS + BLE hybrid positioning</li>
-              <li><i class="fas fa-check-circle"></i> Shock & tamper detection</li>
-              <li><i class="fas fa-check-circle"></i> Temperature tolerance: -40°C to +85°C</li>
-              <li><i class="fas fa-check-circle"></i> Secure cloud dashboard integration</li>
-            </ul>
-          </div>
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> 5km+ range in urban environments</li>
+            <li><i class="fas fa-check-circle"></i> 12-18 month battery life</li>
+            <li><i class="fas fa-check-circle"></i> Hybrid GPS + BLE beacon positioning</li>
+            <li><i class="fas fa-check-circle"></i> Shock and tamper detection</li>
+            <li><i class="fas fa-check-circle"></i> -40°C to +85°C operation</li>
+            <li><i class="fas fa-check-circle"></i> Cloud dashboard with geofencing</li>
+          </ul>
+        </div>
 
-          <div class="overview-image">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="LoRaWAN Tracker Device">
-          </div>
+        <div class="overview-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="LoRaWAN Asset Tracker Device">
         </div>
       </div>
     </section>
@@ -76,17 +73,18 @@
     <!-- Technical Implementation -->
     <section class="project-section">
       <div class="container">
-        <h2 class="section-title">Technical Implementation</h2>
-
+        <h2 class="section-title text-center">Technical Implementation</h2>
         <div class="tech-grid">
+
           <div class="tech-card">
             <div class="tech-icon"><i class="fas fa-microchip"></i></div>
             <h3>Hardware Design</h3>
             <ul>
-              <li>STM32L072 MCU + SX1276 LoRa Transceiver</li>
-              <li>Low-power custom PCB layout</li>
+              <li>STM32L072CZ MCU</li>
+              <li>Semtech SX1276 LoRa transceiver</li>
+              <li>Custom ultra-low-power PCB</li>
               <li>3-axis accelerometer</li>
-              <li>Sealed IP67 enclosure</li>
+              <li>IP67 rated enclosure</li>
             </ul>
           </div>
 
@@ -94,29 +92,30 @@
             <div class="tech-icon"><i class="fas fa-code"></i></div>
             <h3>Firmware</h3>
             <ul>
-              <li>Built on Zephyr RTOS</li>
-              <li>Adaptive transmission intervals</li>
-              <li>Secure AES-128 communication</li>
-              <li>OTA (Over-the-Air) firmware updates</li>
+              <li>Zephyr RTOS for low-power operation</li>
+              <li>Adaptive transmission interval (1 min to 1 hr)</li>
+              <li>Over-the-air firmware updates</li>
+              <li>AES-128 encrypted communications</li>
             </ul>
           </div>
 
           <div class="tech-card">
             <div class="tech-icon"><i class="fas fa-cloud"></i></div>
-            <h3>Cloud Backend</h3>
+            <h3>Cloud Integration</h3>
             <ul>
-              <li>The Things Network integration</li>
-              <li>Node-RED workflows</li>
-              <li>MongoDB storage</li>
-              <li>React-based data dashboard</li>
+              <li>The Things Network (TTN)</li>
+              <li>Node-RED for processing</li>
+              <li>MongoDB for data storage</li>
+              <li>React-based web dashboard</li>
             </ul>
           </div>
+
         </div>
 
-        <!-- Architecture Image -->
+        <!-- System Architecture Image -->
         <div class="architecture-diagram">
           <h3>System Architecture</h3>
-          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="System Architecture Diagram">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="System Architecture">
         </div>
 
       </div>
@@ -125,7 +124,8 @@
     <!-- Power Optimization -->
     <section class="project-section bg-light">
       <div class="container">
-        <h2 class="section-title">Power Optimization Techniques</h2>
+        <h2 class="section-title text-center">Power Optimization</h2>
+        <p class="section-subtitle text-center">Techniques achieving 12+ month battery life.</p>
 
         <div class="power-stats">
           <div class="power-card">
@@ -134,41 +134,45 @@
           </div>
           <div class="power-card">
             <div class="power-value">98.7%</div>
-            <div class="power-label">Deep Sleep Time</div>
+            <div class="power-label">Time in Deep Sleep</div>
           </div>
           <div class="power-card">
             <div class="power-value">22mA</div>
-            <div class="power-label">Peak Active Current</div>
+            <div class="power-label">Peak Current</div>
           </div>
         </div>
 
         <div class="optimization-techniques">
-          <h3>Implemented Methods</h3>
+          <h3>Optimization Techniques</h3>
           <div class="technique">
-            <h4>Adaptive Data Transmission</h4>
-            <p>Dynamically adjusts data interval based on asset motion and battery level.</p>
+            <h4>Adaptive Transmission Algorithm</h4>
+            <pre><code class="language-c">// Pseudo-code
+void update_reporting_interval() {
+  if (motion_detected) interval = MIN_INTERVAL;
+  else if (battery_low) interval = MAX_INTERVAL;
+  else interval = DEFAULT_INTERVAL;
+}</code></pre>
           </div>
           <div class="technique">
             <h4>Peripheral Power Gating</h4>
-            <p>Unused hardware modules are shut down automatically.</p>
+            <p>Turn off unused hardware modules completely to minimize leakage current.</p>
           </div>
           <div class="technique">
-            <h4>Dynamic Clock Scaling</h4>
-            <p>MCU clock frequency scaled down during idle states.</p>
+            <h4>Clock Scaling</h4>
+            <p>Dynamic clock scaling during idle periods to lower active power.</p>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- Field Test Results -->
     <section class="project-section">
       <div class="container">
-        <h2 class="section-title">Field Test Results</h2>
+        <h2 class="section-title text-center">Field Test Results</h2>
 
         <div class="test-results">
           <div class="result-card">
-            <h3>Communication Range</h3>
+            <h3>Range Performance</h3>
             <div class="result-meter">
               <div class="meter-bar urban" style="width: 85%;"><span>Urban: 5.2km</span></div>
               <div class="meter-bar suburban" style="width: 100%;"><span>Suburban: 8.7km</span></div>
@@ -177,7 +181,7 @@
           </div>
 
           <div class="result-card">
-            <h3>Battery Life Scenarios</h3>
+            <h3>Battery Life Modes</h3>
             <div class="battery-life-chart">
               <div class="chart-bar" style="height: 60%;">Continuous: 3 months</div>
               <div class="chart-bar" style="height: 80%;">Standard: 9 months</div>
@@ -186,30 +190,29 @@
           </div>
         </div>
 
-        <div class="testimonial bg-light">
-          <blockquote>“Deployment across our facility reduced equipment search times by 75% and saved over $120k within the first quarter.”</blockquote>
-          <div class="testimonial-author"><strong>Rajesh Kumar</strong> – Facilities Manager</div>
+        <div class="testimonial">
+          <blockquote>“Deploying 150+ trackers reduced our equipment search time by 75% and recovered $120k worth of assets within 3 months.”</blockquote>
+          <div class="testimonial-author"><strong>Rajesh Kumar</strong>, Facilities Manager</div>
         </div>
-
       </div>
     </section>
 
-    <!-- Gallery -->
+    <!-- Project Gallery -->
     <section class="project-gallery bg-light">
       <div class="container">
-        <h2 class="section-title">Project Gallery</h2>
+        <h2 class="section-title text-center">Project Gallery</h2>
 
         <div class="gallery-grid">
           <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCB Layout">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PCB Design">
             <div class="gallery-caption">Custom PCB</div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dashboard UI">
-            <div class="gallery-caption">Dashboard</div>
+            <div class="gallery-caption">Cloud Dashboard</div>
           </div>
           <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Field Deployment">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Deployment Photo">
             <div class="gallery-caption">Field Deployment</div>
           </div>
         </div>
@@ -217,10 +220,10 @@
       </div>
     </section>
 
-    <!-- Back to Portfolio -->
+    <!-- Back Button -->
     <section class="project-section text-center">
       <div class="container">
-        <a href="../index.html#portfolio" class="btn">
+        <a href="index.html#portfolio" class="btn">
           <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
       </div>
@@ -235,6 +238,6 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
