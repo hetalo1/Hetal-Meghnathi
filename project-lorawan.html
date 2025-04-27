@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LoRaWAN Asset Tracker | Hetal Meghnathi</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+
   <!-- Theme Toggle -->
   <button class="theme-toggle" aria-label="Toggle theme">
     <i class="fas fa-moon"></i>
@@ -34,38 +34,37 @@
 
   <!-- Main Content -->
   <main id="main-content">
-    
+
     <!-- Project Header -->
     <section class="project-header">
       <div class="container">
         <h1 class="section-title">LoRaWAN Asset Tracker</h1>
-        <p class="section-subtitle">Long-range IoT tracking solution for industrial assets</p>
+        <p class="section-subtitle">Smart, long-range tracking for industrial assets.</p>
         <div class="project-meta">
           <span class="meta-item"><i class="fas fa-calendar-alt"></i> Aug 2023 - Jan 2025</span>
-          <span class="meta-item"><i class="fas fa-tags"></i> LoRaWAN, Embedded Systems, IoT</span>
+          <span class="meta-item"><i class="fas fa-tags"></i> LoRaWAN, IoT, Embedded Systems</span>
         </div>
       </div>
     </section>
 
-    <!-- Project Overview -->
+    <!-- Overview -->
     <section class="project-section">
       <div class="container">
         <div class="project-overview">
           <div class="overview-content">
-            <h2>Project Overview</h2>
-            <p>The LoRaWAN Asset Tracker is a low-power, long-range tracking solution designed for monitoring valuable equipment across large industrial facilities. The system provides real-time location data with battery life exceeding 12 months, solving the challenge of tracking assets in GPS-denied environments.</p>
+            <h2>Overview</h2>
+            <p>This device tracks industrial equipment over 5km+, even without GPS. It's battery-efficient, lasting 12–18 months on a single charge, and built to survive harsh environments.</p>
 
-            <h3>Key Features</h3>
+            <h3>Highlights</h3>
             <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> 5km+ range in urban environments</li>
-              <li><i class="fas fa-check-circle"></i> 12-18 month battery life</li>
-              <li><i class="fas fa-check-circle"></i> Hybrid positioning (GPS + BLE beacons)</li>
-              <li><i class="fas fa-check-circle"></i> Shock/tamper detection</li>
-              <li><i class="fas fa-check-circle"></i> -40°C to +85°C operation</li>
-              <li><i class="fas fa-check-circle"></i> Cloud dashboard with geofencing</li>
+              <li><i class="fas fa-check-circle"></i> 5km+ range in cities</li>
+              <li><i class="fas fa-check-circle"></i> 12–18 months battery life</li>
+              <li><i class="fas fa-check-circle"></i> GPS + BLE positioning</li>
+              <li><i class="fas fa-check-circle"></i> Tamper and shock alerts</li>
+              <li><i class="fas fa-check-circle"></i> -40°C to +85°C operating range</li>
+              <li><i class="fas fa-check-circle"></i> Cloud-based location tracking with geofencing</li>
             </ul>
           </div>
-
           <div class="overview-image">
             <img src="https://raw.githubusercontent.com/hetalo1/Hetal-meghnathi/ae0d3e555f6f94141d716881a46b56d9d75009f7/png/lorawan.png" alt="LoRaWAN Asset Tracker Device">
           </div>
@@ -76,18 +75,18 @@
     <!-- Technical Implementation -->
     <section class="project-section bg-light">
       <div class="container">
-        <h2 class="section-title">Technical Implementation</h2>
-
+        <h2>Technical Implementation</h2>
         <div class="tech-grid">
+
           <div class="tech-card">
             <div class="tech-icon"><i class="fas fa-microchip"></i></div>
-            <h3>Hardware Design</h3>
+            <h3>Hardware</h3>
             <ul>
-              <li>STM32L072CZ as main microcontroller</li>
-              <li>Semtech SX1276 LoRa transceiver</li>
-              <li>Custom ultra-low-power PCB design</li>
-              <li>3-axis accelerometer for motion detection</li>
-              <li>IP67 rated enclosure</li>
+              <li>STM32L072CZ microcontroller</li>
+              <li>Semtech SX1276 LoRa radio</li>
+              <li>Custom low-power PCB</li>
+              <li>3-axis accelerometer for motion</li>
+              <li>IP67 waterproof casing</li>
             </ul>
           </div>
 
@@ -95,10 +94,10 @@
             <div class="tech-icon"><i class="fas fa-code"></i></div>
             <h3>Firmware</h3>
             <ul>
-              <li>Zephyr RTOS for power management</li>
-              <li>Adaptive transmission interval (1min to 1hr)</li>
-              <li>Over-the-air (OTA) updates</li>
-              <li>Encrypted communication (AES-128)</li>
+              <li>Zephyr RTOS-based power management</li>
+              <li>Adaptive data transmission</li>
+              <li>Encrypted (AES-128) LoRaWAN communication</li>
+              <li>Over-the-air (OTA) firmware updates</li>
             </ul>
           </div>
 
@@ -106,44 +105,126 @@
             <div class="tech-icon"><i class="fas fa-cloud"></i></div>
             <h3>Cloud Integration</h3>
             <ul>
-              <li>The Things Network (TTN) integration</li>
-              <li>Node-RED for data processing</li>
-              <li>MongoDB for data storage</li>
-              <li>React-based dashboard</li>
+              <li>The Things Network (TTN) backend</li>
+              <li>Node-RED data workflows</li>
+              <li>MongoDB for historical data storage</li>
+              <li>React dashboard for live asset tracking</li>
             </ul>
           </div>
-        </div>
 
-        <div class="architecture-diagram">
-          <h3>System Architecture</h3>
-          <img src="https://raw.githubusercontent.com/hetalo1/Hetal-meghnathi/ae0d3e555f6f94141d716881a46b56d9d75009f7/png/lorawan2.png" alt="LoRaWAN System Architecture">
-          <div class="architecture-legend">
-            <div class="legend-item"><span class="color-node"></span> End Nodes</div>
-            <div class="legend-item"><span class="color-gateway"></span> Gateways</div>
-            <div class="legend-item"><span class="color-network"></span> Network Server</div>
-            <div class="legend-item"><span class="color-cloud"></span> Cloud Application</div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- (Power Optimization, Field Test Results, Comparison Sections — same as your original, no image change needed.) -->
+    <!-- Power Optimization -->
+    <section class="project-section">
+      <div class="container">
+        <h2>Power Optimization</h2>
+        <p class="section-subtitle">Designed for maximum battery life.</p>
+
+        <div class="power-stats">
+          <div class="power-card">
+            <div class="power-value">1.8µA</div>
+            <div class="power-label">Deep Sleep Current</div>
+          </div>
+          <div class="power-card">
+            <div class="power-value">98.7%</div>
+            <div class="power-label">Time in Sleep Mode</div>
+          </div>
+          <div class="power-card">
+            <div class="power-value">22mA</div>
+            <div class="power-label">Peak Transmission Current</div>
+          </div>
+        </div>
+
+        <div class="optimization-techniques">
+          <h3>Strategies</h3>
+          <ul>
+            <li>Adaptive transmission frequency based on movement</li>
+            <li>Hardware-controlled peripheral power gating</li>
+            <li>Dynamic clock speed scaling</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Field Results -->
+    <section class="project-section bg-light">
+      <div class="container">
+        <h2>Field Test Results</h2>
+
+        <div class="test-results">
+          <div class="result-card">
+            <h3>Range Tests</h3>
+            <ul>
+              <li><strong>Urban:</strong> 5.2km</li>
+              <li><strong>Suburban:</strong> 8.7km</li>
+              <li><strong>Rural:</strong> 12.3km</li>
+            </ul>
+          </div>
+
+          <div class="result-card">
+            <h3>Battery Performance</h3>
+            <ul>
+              <li><strong>Continuous tracking:</strong> 3 months</li>
+              <li><strong>Standard tracking:</strong> 9 months</li>
+              <li><strong>Optimized tracking:</strong> 14 months</li>
+            </ul>
+          </div>
+        </div>
+
+        <blockquote class="testimonial">
+          "Since deployment, asset retrieval time dropped by 75% and prevented $120K in losses within 3 months."
+          <footer>- Rajesh Kumar, Facilities Manager</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Why LoRaWAN -->
+    <section class="project-section">
+      <div class="container">
+        <h2>Why LoRaWAN?</h2>
+
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>LoRaWAN</th>
+                <th>Bluetooth</th>
+                <th>WiFi</th>
+                <th>Cellular</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Range</td><td>5km+</td><td>100m</td><td>300m</td><td>10km+</td></tr>
+              <tr><td>Battery Life</td><td>12+ months</td><td>Weeks</td><td>Days</td><td>Hours</td></tr>
+              <tr><td>Infra Cost</td><td>Low</td><td>Low</td><td>Medium</td><td>High</td></tr>
+              <tr><td>Monthly Fee</td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="comparison-conclusion">
+          <p>LoRaWAN offered the best mix of low-cost, long-range, and battery efficiency—ideal for scalable asset tracking without ongoing fees.</p>
+        </div>
+
+      </div>
+    </section>
 
     <!-- Gallery -->
     <section class="project-section bg-light">
       <div class="container">
-        <h2 class="section-title">Project Gallery</h2>
+        <h2>Gallery</h2>
 
         <div class="gallery-grid">
           <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/hetalo1/Hetal-meghnathi/ae0d3e555f6f94141d716881a46b56d9d75009f7/png/lorawan.png" alt="Tracker PCB">
-            <div class="gallery-caption">Custom PCB Design</div>
-          </div>
-          <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/hetalo1/Hetal-meghnathi/ae0d3e555f6f94141d716881a46b56d9d75009f7/png/lorawan2.png" alt="Deployment">
-            <div class="gallery-caption">System Architecture</div>
+            <img src="https://raw.githubusercontent.com/hetalo1/Hetal-meghnathi/ae0d3e555f6f94141d716881a46b56d9d75009f7/png/lorawan2.png" alt="Tracker PCB and Assembly">
+            <div class="gallery-caption">PCB and Product Assembly</div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -155,6 +236,7 @@
         </a>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
